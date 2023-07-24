@@ -1,0 +1,109 @@
+// console.log('Happy Learning!!!');
+// console.log('new way to run js code');
+
+// let name='Sachin'
+// name= 'John'
+// const userName = 'Gopal'
+// console.log('the user name is:'+userName);
+
+
+// function display(){
+    
+//     for(let i=1;i<=5;i++){
+// console.log(i);
+//     }
+//     console.log('the value of i outside the loop'+i);
+// }
+
+// display();
+
+// console.log(77==='77');
+
+// let num = 56;
+// console.log(typeof(num));
+
+// if(num%2==0){
+//     console.log('The number is even');
+// }
+// else{
+//     console.log('The number is odd');
+// }
+
+// alert('Not Getting any thing.....')
+
+// const user = prompt('Enter your name');
+// document.write('the user name is '+ user);
+
+//   let num1 = '66';
+//   let num2 = 33;
+//   let num3 = parseInt(num1);
+
+//   const result = num3 + num2;
+//   console.log('The result is'+result);
+
+// let arr = [44,66,77,88,'Ram','Sham']
+// for(let i=0;i<arr.length;i++){
+//     console.log(arr[i]);
+// }
+
+// arr.forEach(items =>{
+// console.log(items);
+// })
+
+// let arr = [45,'Ram',true,{'name':'Gopal','age':45}]
+// console.log(arr);
+
+// function add(num1 , num2){
+//     return num1+ num2;
+// }
+
+// const result = add(3,5)
+// console.log('the result is '+ result);
+
+// const result = (num1, num2) =>{ return num1+ num2 }
+
+
+let student = [{'name':'Vishal','email':'vishal@gmail.com','marks':444},
+                {'name':'Mohit','email':'mohit@gmail.com','marks':333},
+                {'name':'Tina','email':'tina@gmail.com','marks':555},
+            {'name':'Gopal','email':'gopal@gmail.com','marks':666}]
+
+console.log(student);
+
+// student.forEach(elm => 
+//     console.log(elm.name)
+//     )
+
+//    const res = student.every(elm => elm.marks > 444)
+//     console.log(res);
+
+//   const res1 = student.map(elm => elm.marks + 2)
+//   console.log(res1);
+
+// const res = student.filter(elm => elm.marks >444)
+
+// console.log(res);
+
+//    student.push([{'name':'prasad',},{'name':'vicky'}])
+//    console.log(student);
+
+// const res = student.findIndex(elm => elm.marks > 333)
+// console.log(res);
+
+
+class Student {
+    
+
+    constructor(id, name){
+        this.id = id;
+        this.name = name;
+    }
+
+     displayData(){
+        console.log('this is the function');
+     }
+
+}
+
+ let std = new Student(2,'Sachin');
+std.displayData();

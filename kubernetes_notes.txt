@@ -1,0 +1,22 @@
+container
+eks
+elastic cloud repository->ecr
+
+
+helm chart- packagecollection of related k8s --> develop ymls -->releases(running chart)
+artifact-hub: get these charts
+helps to define common blueprint
+
+
+mavev-->helm-->downloads dependencies
+config
+service
+deploy
+
+
+values.yml
+objects
+
+kubectl get all 
+mongodb deployment 
+kubectl logs pod/name

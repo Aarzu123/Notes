@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Browser</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Designation</th>
+            <th>Company</th>
+        </tr>
+        <tr>
+            <td>Mohit</td>
+            <td>Engineer</td>
+            <td>NCS</td>
+        </tr>
+        <tr>
+            <td>Shyam</td>
+            <td>manager</td>
+            <td>NIIT</td>
+        </tr>
+              <tr>
+            <td>gopal</td>
+            <td>HR</td>
+            <td>NCS</td>
+        </tr>
+    </table>
+    <h1>Search for Designation</h1>
+    <label for="nameTextBox">Enter Name:</label>
+    <input type="text" id="nameTextBox"><br><br>
+    <button id="searchButton">Search</button>
+    <script src="script.js"></script>
+</body>
+</html>
+----------------------------------
+const button = document.getElementById("searchButton");
+const textBox = document.getElementById("nameTextBox");
+const table = document.querySelector("table");
+button.addEventListener("click", function() {
+  const name = textBox.value;
+  for (let i = 1; i < table.rows.length; i++) {
+    const row = table.rows[i];
+    if (row.cells[0].textContent === name) {
+      const designation = row.cells[1].textContent;
+      console.log(designation);
+      return;
+    }
+  }
+  console.log("Name not found");
+});
+
+
+
+
+
+
+

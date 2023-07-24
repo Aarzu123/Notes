@@ -1,0 +1,246 @@
+Class file:
+
+@Component({
+  selector: 'app-your-component',
+  templateUrl: './your.component.html',
+  styleUrls: ['./your.component.css']
+})
+export class YourComponent {
+  emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/; // Regular expression pattern for email validation
+  mobilePattern = /^\d{10}$/; // Regular expression pattern for 10-digit mobile number validation
+
+  onSubmit(form: NgForm) {
+    if (form.valid) {
+      // Form is valid, handle the submission
+      console.log(form.value);
+    } else {
+      // Form is invalid, display error messages
+      this.validateFormFields(form.form);
+    }
+  }
+
+  validateFormFields(form: any) {
+    Object.keys(form.controls).forEach(field => {
+      const control = form.controls[field];
+      control.markAsTouched({ onlySelf: true });
+    });
+  }
+}
+
+html code:
+<form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input type="email" class="form-control" id="email" name="email" [(ngModel)]="myForm.email" required pattern="{{emailPattern}}">
+    <div *ngIf="myForm.email.touched && myForm.email.invalid" class="text-danger">
+      <div *ngIf="myForm.email.errors.required">Email is required.</div>
+      <div *ngIf="myForm.email.errors.pattern">Invalid email format.</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="mobile">Mobile Number:</label>
+    <input type="text" class="form-control" id="mobile" name="mobile" [(ngModel)]="myForm.mobile" required pattern="{{mobilePattern}}">
+    <div *ngIf="myForm.mobile.touched && myForm.mobile.invalid" class="text-danger">
+      <div *ngIf="myForm.mobile.errors.required">Mobile number is required.</div>
+      <div *ngIf="myForm.mobile.errors.pattern">Invalid mobile number format.</div>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+
+without regular expresssion:
+
+
+ts file code:
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+
+class code:
+@Component({
+  selector: 'app-your-component',
+  templateUrl: './your.component.html',
+  styleUrls: ['./your.component.css']
+})
+export class YourComponent {
+  myForm: FormGroup;
+
+  constructor() {
+    this.myForm = new FormGroup({
+      email: new FormControl('', [Validators.required, Validators.email]),
+      mobile: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern(/^[0-9]*$/)])
+    });
+  }
+
+  onSubmit() {
+    if (this.myForm.valid) {
+      // Form is valid, handle the submission
+      console.log(this.myForm.value);
+    } else {
+      // Form is invalid, display error messages
+      this.validateFormFields(this.myForm);
+    }
+  }
+
+  validateFormFields(form: FormGroup) {
+    Object.keys(form.controls).forEach(field => {
+      const control = form.get(field);
+      control.markAsTouched({ onlySelf: true });
+    });
+  }
+}
+
+
+html code:
+<form (ngSubmit)="onSubmit()" [formGroup]="myForm">
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input type="email" class="form-control" id="email" name="email" formControlName="email">
+    <div *ngIf="myForm.get('email').touched && myForm.get('email').hasError('required')" class="text-danger">
+      Email is required.
+    </div>
+    <div *ngIf="myForm.get('email').touched && myForm.get('email').hasError('email')" class="text-danger">
+      Invalid email format.
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="mobile">Mobile Number:</label>
+    <input type="text" class="form-control" id="mobile" name="mobile" formControlName="mobile">
+    <div *ngIf="myForm.get('mobile').touched && myForm.get('mobile').hasError('required')" class="text-danger">
+      Mobile number is required.
+    </div>
+    <div *ngIf="myForm.get('mobile').touched && myForm.get('mobile').hasError('minlength')" class="text-danger">
+      Mobile number must be at least 10 digits.
+    </div>
+    <div *ngIf="myForm.get('mobile').touched && myForm.get('mobile').hasError('maxlength')" class="text-danger">
+      Mobile number cannot exceed 10 digits.
+    </div>
+    <div *ngIf="myForm.get('mobile').touched && myForm.get('mobile').hasError('pattern')" class="text-danger">
+      Invalid mobile number format. Only digits are allowed.
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+
+Login:
+class code:
+
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  loginForm: FormGroup;
+
+  constructor(private formBuilder: FormBuilder, private router: Router) {
+    this.loginForm = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required]
+    });
+  }
+
+  onSubmit() {
+    if (this.loginForm.valid) {
+      // Form is valid, redirect to home page
+      this.router.navigate(['/home']);
+    } else {
+      // Form is invalid, display error messages
+      this.validateFormFields(this.loginForm);
+    }
+  }
+
+  validateFormFields(form: FormGroup) {
+    Object.keys(form.controls).forEach(field => {
+      const control = form.get(field);
+      control.markAsTouched({ onlySelf: true });
+    });
+  }
+}
+
+
+html code:
+<div class="container">
+  <h2>Login</h2>
+  <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" name="email" formControlName="email">
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" class="form-control" id="password" name="password" formControlName="password">
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button>
+  </form>
+</div>
+
+app-comp.ts:
+
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+
+import { AppComponent } from './app.component';
+
+@NgModule({
+  declarations: [AppComponent],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatButtonModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule {}
+
+
+Routning:
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+
+const routes: Routes = [
+  { path: 'home', component: HomeComponent }
+
+
+
+
+.component-container {
+  background-image: url('../assets/background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* Add any additional styling for the container */
+}
+
+
+#app-routing module
+
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+
+const routes: Routes = [
+  { path: '', redirectTo: '/home', pathMatch: 'full' }, // Redirect to home by default
+  { path: 'home', component: HomeComponent }
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule {}
+

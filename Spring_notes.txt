@@ -1,0 +1,34 @@
+ApplicationContext-->Create Objects--Spring Container  
+Bean-->Singleton objects(Scope-Bydefault)-->Creates single object  automatically even if not asks to create
+Prototype-->Scope="prototype"-->Creates multiple objects but we have create it manually.
+
+
+Setter injection:
+to access the members of class.
+use <property name="" value="">-variable --xml file-->it calls setProperty_name()
+
+
+reference type--class(bean) -object
+<property name="variable_name" ref="id/class_name">
+
+Constructor injection:use when compulsary to assign value to  variable 
+<constructor-arg name="" value="">
+
+
+Autowire:informing spring to connect means search object and calls it only if bean available
+<bean id="" class="" autowire="byName"/"byType"/"default"/"constructor">
+interface--Computer
+
+primary="trur"  -->bean preference
+class-laptop and desktop--implements Computer interface
+
+why MVC-->Model-->POJO (Simple java class)
+View -->JSP
+Controller-->servlet
+Front Controller-->Dispatcher servlet (Created by spring framework)
+
+@Controller
+@RequestMapping("/")followed by function() that needs to call 
+JSP-converts->Servlet-run on->Tomcat Jasper-->add maven dependency 
+
+index.jsp --> <form></form>

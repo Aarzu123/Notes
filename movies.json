@@ -1,0 +1,214 @@
+[{
+  "_id": {
+    "$oid": "6442551206f67e0927a094e5"
+  },
+  "title": "Pulp Fiction",
+  "writer": "Quentin Tarantino",
+  "year": 1994,
+  "actors": [
+    "John Travolt",
+    "Uma Thurman"
+  ],
+  "actor": "Samuel L. Jackson"
+},{
+  "_id": {
+    "$oid": "6442557806f67e0927a094e6"
+  },
+  "title": "Fight Club",
+  "writer": "Chuck Palahniuk",
+  "year": 1999,
+  "actors": [
+    "Brad Pitt",
+    "Edward Norton"
+  ]
+},{
+  "_id": {
+    "$oid": "644255ce06f67e0927a094e7"
+  },
+  "title": "Inglorious Basterds",
+  "writer": "Quentin Tarantino",
+  "year": 2009,
+  "actors": [
+    "Brad Pitt",
+    " Diane Kruger",
+    "Eli Roth"
+  ]
+},{
+  "_id": {
+    "$oid": "6442563e06f67e0927a094e8"
+  },
+  "title": "The Hobbit: An Unexpected Journey",
+  "writer": "J.R.R. Tolkein",
+  "year": 2012,
+  "franchise": "The Hobbit",
+  "synopsis": "A reluctant hobbit, Bilbo Baggins, sets out to the Lonely Mountain with a spirited group of dwarves to reclaim their mountain home - and the gold within it - from the dragon Smaug."
+},{
+  "_id": {
+    "$oid": "6442565e06f67e0927a094e9"
+  },
+  "title": "The Hobbit: The Desolation of Smaug",
+  "writer": "J.R.R. Tolkein",
+  "year": 2013,
+  "franchise": "The Hobbit",
+  "synopsis": "The dwarves, along with Bilbo Baggins and Gandalf the Grey, continue their quest to reclaim Erebor, their homeland, from Smaug. Bilbo Baggins is in possession of a mysterious and magical ring."
+},{
+  "_id": {
+    "$oid": "644256c606f67e0927a094ea"
+  },
+  "title": "The Hobbit: The Battle of the Five Armies",
+  "writer": "J.R.R. Tolkein",
+  "year": 2012,
+  "franchise": "The Hobbit",
+  "synopsis": " Bilbo and Company are forced to engage in a war against an array of combatants and keep the Lonely Mountain from falling into the hands of a rising darkness"
+},{
+  "_id": "02906",
+  "city": "PROVIDENCE",
+  "pop": 31069,
+  "state": "RI",
+  "capital": {
+    "name": "Providence",
+    "electoralCollege": 4
+  }
+},{
+  "_id": "02108",
+  "city": "BOSTON",
+  "pop": 3697,
+  "state": "MA",
+  "capital": {
+    "name": "Boston",
+    "electoralCollege": 11
+  }
+},{
+  "_id": "10001",
+  "city": "NEW YORK",
+  "pop": 18913,
+  "state": "NY",
+  "capital": {
+    "name": "Albany",
+    "electoralCollege": 29
+  }
+},{
+  "_id": "01012",
+  "city": "CHESTERFIELD",
+  "pop": 177,
+  "state": "MA",
+  "capital": {
+    "name": "Boston",
+    "electoralCollege": 11
+  }
+},{
+  "_id": "32801",
+  "city": "ORLANDO",
+  "pop": 9275,
+  "state": "FL",
+  "capital": {
+    "name": "Tallahassee",
+    "electoralCollege": 29
+  }
+},{
+  "_id": "12966",
+  "city": "BANGOR",
+  "pop": 2867,
+  "state": "NY",
+  "capital": {
+    "name": "Albany",
+    "electoralCollege": 29
+  }
+},{
+  "_id": "32920",
+  "city": "CAPE CANAVERAL",
+  "pop": 7655,
+  "state": "FL",
+  "capital": {
+    "name": "Tallahassee",
+    "electoralCollege": 29
+  }
+},{
+  "_id": "NY",
+  "name": "New York",
+  "pop": 28300000,
+  "state": 1788
+},{
+  "_id": "33125",
+  "city": "MIAMI",
+  "pop": 47761,
+  "state": "FL",
+  "capital": {
+    "name": "Tallahassee",
+    "electoralCollege": 29
+  }
+},{
+  "_id": "RI",
+  "name": "Rhode Island",
+  "pop": 1060000,
+  "state": 1790
+},{
+  "_id": "MA",
+  "name": "Massachusetts",
+  "pop": 6868000,
+  "state": 1790
+},{
+  "_id": "FL",
+  "name": "Florida",
+  "pop": 6800000,
+  "state": 1845
+},{
+  "_id": "1",
+  "name": "Tom",
+  "addresses": [
+    "01001",
+    "12997"
+  ]
+},{
+  "_id": "02907",
+  "city": "CRANSTON",
+  "pop": 25668,
+  "state": "RI",
+  "capital": {
+    "name": "Providence",
+    "electoralCollege": 4
+  }
+},{
+  "_id": "2",
+  "name": "Bill",
+  "addresses": [
+    "01001",
+    "12967",
+    "32920"
+  ]
+},{
+  "_id": "3",
+  "name": "Mary",
+  "addresses": [
+    "32801",
+    "32920",
+    "33125"
+  ]
+},{
+  "_id": "12967",
+  "city": "NORTH LAWRENCE",
+  "pop": 943,
+  "state": "NY",
+  "capital": {
+    "name": "Albany",
+    "electoralCollege": 29
+  }
+},{
+  "_id": "01001",
+  "city": "AGAWAM",
+  "pop": 15338,
+  "state": "MA",
+  "capital": {
+    "name": "Boston",
+    "electoralCollege": 11
+  }
+},{
+  "_id": "12997",
+  "city": "WILMINGTON",
+  "pop": 958,
+  "state": "NY",
+  "capital": {
+    "name": "Albany",
+    "electoralCollege": 29
+  }
+}]

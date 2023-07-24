@@ -1,0 +1,277 @@
+Data models:
+
+object based:ORM(object relational model) framework
+record based:
+
+A supplier ships certain parts.
+identify entities
+
+
+
+Types of Databases:
+
+Relational Databases: 
+	These databases use tables to organize and store data. They are the most commonly used type of database and are used to manage data in a wide range of applications, from accounting systems to e-commerce websites.
+
+NoSQL Databases: 
+	These databases use a non-relational approach to store data. They are often used in applications that require large amounts of unstructured or semi-structured data, such as social media platforms and IoT devices.
+
+Object-Oriented Databases: 
+	These databases are designed to store complex data structures, such as objects, and are often used in software development applications.
+
+Hierarchical Databases: 
+	These databases organize data in a tree-like structure, with each level representing a different type of information. They are commonly used in mainframe systems and older legacy applications.
+
+Network Databases: 
+	These databases are similar to hierarchical databases but allow for more complex relationships between data elements. They are often used in scientific research and engineering applications.
+
+Graph Databases: 
+	These databases are designed to store and manage interconnected data, such as social networks and recommendation engines.
+
+Time-Series Databases: 
+	These databases are optimized for storing and querying time-stamped data, such as stock market data, sensor data, and IoT data.
+
+Spatial Databases: 
+	These databases are designed to manage and query spatial data, such as maps and geographic information systems (GIS).
+	
+--------------------------------------------
+
+RDBMS stands for Relational Database Management System. 
+
+It is a type of database management system (DBMS) that stores data in a tabular form, using a collection of tables with a defined schema (structure). 
+RDBMS are based on the relational data model, which organizes data into one or more tables with a unique key identifier that links related data across different tables.
+
+Advantages:
+
+Data Consistency: RDBMS ensures that data is consistent across all tables and that there are no duplicate entries or conflicting information.
+
+	ACID Compliance: RDBMSs are ACID compliant, which means that they ensure Atomicity, Consistency, Isolation, and Durability of transactions.
+	
+		Atomicity: 
+		This principle ensures that database transactions are all or nothing. 
+		It means that a transaction must be completed in its entirety, or it must be rolled back to its original state, with none of the changes committed to the database. 
+		This ensures that transactions are always completed in a consistent state, regardless of any system failures or interruptions that may occur.
+			A customer wants to transfer $100 from Account A to Account B. The transaction would involve two steps: debiting Account A by $100 and crediting Account B by $100.
+
+			The atomicity principle ensures that the transaction is completed in its entirety or not at all. If the transaction fails during the debit step, the transaction would be rolled back to its original state, and the balance of Account A would remain unchanged. 
+			If the transaction fails during the credit step, the transaction would be rolled back, and the balance of Account B would remain unchanged.
+
+		Consistency: 
+		This principle ensures that the database remains in a valid state before and after each transaction. 
+		It means that any changes made to the database must conform to the defined rules, constraints, and relationships that govern the data.
+
+		Isolation: 
+		This principle ensures that multiple transactions can occur concurrently without interfering with one another. 
+		Each transaction must be executed in isolation, meaning that it cannot access or modify data that is being used by other transactions until they are committed or rolled back.
+
+		Durability: 
+		This principle ensures that the changes made to the database are permanent, and they survive any system failures or crashes. 
+		It means that once a transaction is committed, its changes are saved to the database, and they cannot be undone unless another transaction is executed to reverse those changes.
+
+	Data Integrity: RDBMSs enforce referential integrity, which ensures that data in one table is linked to data in another table in a consistent and valid way.
+
+	Scalability: RDBMSs can handle large amounts of data and are highly scalable, making them ideal for use in enterprise-level applications.
+
+	Security: RDBMSs provide strong security features, such as role-based access control, to ensure that data is protected from unauthorized access.
+
+	Data Retrieval: RDBMSs use Structured Query Language (SQL) to retrieve data, which is a standardized language that can be used to retrieve data from any RDBMS.
+
+	Data Relationships: RDBMSs are designed to handle complex data relationships between tables, making it easy to perform queries that span multiple tables.
+
+	Data Backup and Recovery: RDBMSs provide robust backup and recovery mechanisms, ensuring that data can be restored in case of a disaster or data loss.
+
+	Transaction Management: RDBMSs provide transaction management capabilities that allow multiple users to work with the data simultaneously, without compromising data integrity.
+	
+Examples of popular RDBMSs include Oracle, MySQL, Microsoft SQL Server, PostgreSQL, and IBM DB2.
+
+Steps:
+-----------------------------
+
+The first step in implementing an RDBMS is to define the database schema. 
+The schema defines the structure of the database, including the tables, columns, data types, constraints, and relationships between tables.
+
+To define the schema, you need to identify the entities that will be represented in the database and the relationships between those entities. 
+You also need to define the attributes of each entity and the data types that will be used to store the data.
+
+The second step is to design an ER diagram. 
+An ER diagram is a graphical representation of the database schema that depicts the entities and their relationships.
+The ER diagram allows you to visualize the structure of the database, including the entities, attributes, and relationships between them. 
+The entities are represented as rectangles, the attributes are represented as ovals, and the relationships between entities are represented as diamonds.
+By creating an ER diagram, you can identify the entities and their relationships, and define the cardinality and optionality of the relationships. 
+
+--------------------------------------
+Types of Relationships:
+
+One-to-one (1:1) relationship: 
+This type of relationship exists when one row in a table is associated with only one row in another table, and vice versa. 
+A practical example of a one-to-one relationship is between an employee and their employee ID. Each employee has a unique employee ID, and each employee ID corresponds to only one employee.
+
+An employee and their employee record
+A person and their passport
+A book and its unique ISBN number
+
+
+One-to-many (1:N) relationship: 
+This type of relationship exists when one row in a table is associated with many rows in another table, but each row in the second table is associated with only one row in the first table. 
+For example, one customer can have multiple orders, but each order can only belong to one customer.
+A company can have many employees, but each employee belongs to only one company.
+
+
+Many-to-many (N:N) relationship: 
+This type of relationship exists when many rows in one table are associated with many rows in another table. A practical example of a many-to-many relationship is between students and courses. 
+
+A student can take many courses, and a course can be taken by many students.
+A student can belong to many clubs, and each club can have many students.
+A book can be written by many authors, and each author can write many books.
+A customer can buy many products, and each product can be bought by many customers.
+
+-----------------------------------
+	
+Types of Keys:
+Primary key: A primary key is a unique identifier for each row in a table. It ensures that each row can be uniquely identified and serves as a basis for creating relationships between tables.
+
+Foreign key: A foreign key is a column or a set of columns in one table that refers to the primary key of another table. It is used to create relationships between tables.
+
+Candidate key: A candidate key is a column or a set of columns that can be used as a primary key. It must be unique and non-null.
+
+Composite key: A composite key is a primary key that consists of two or more columns. It is used when no single column can uniquely identify a row.
+
+Alternate key: An alternate key is a candidate key that is not chosen to be the primary key. It can be used as a unique identifier for a row.
+
+Super key: A super key is a set of one or more columns that can uniquely identify a row in a table. It may contain additional columns that are not necessary for uniqueness.
+
+Normalization:
+
+Normalization is the process of organizing data in a database to minimize redundancy and dependency. 
+The goal of normalization is to create a database structure that is more efficient, maintainable, and scalable.
+Normalization comes into picture during the database design process, after the entities and relationships have been identified using an ER diagram. 
+The normalization process involves breaking down the entities into smaller, more atomic entities and creating separate tables for them.
+
+Normalization is typically done in multiple stages, called normal forms. 
+The most commonly used normal forms are: 
+	First Normal Form (1NF) 
+	Second Normal Form (2NF)
+	Third Normal Form (3NF)
+	BCNF stands for Boyce-Codd Normal Form
+	
+	First Normal Form:
+	
+	The first normal form (1NF) requires that each attribute in a relation (table) contain only atomic (indivisible) values, and that there should be no repeating groups or arrays of values within any attribute or column.
+	
+StudentID			Name			Courses Taken
+101					John Smith		Math, Physics, Chemistry
+102					Jane Doe		Physics, Biology, History
+103					Bob Johnson		Math, Biology, Chemistry
+
+Converting into first normal form:
+------------------------------------------
+
+StudentID	Name		Course Taken
+101			John Smith	Math
+101			John Smith	Physics
+101			John Smith	Chemistry
+102			Jane Doe	Physics
+102			Jane Doe	Biology
+102			Jane Doe	History
+103			Bob Johnson	Math
+103			Bob Johnson	Biology
+103			Bob Johnson	Chemistry
+
+------------------------------------------------------------
+The second normal form (2NF)
+The first condition in the 2nd NF is that the table has to be in 1st NF. 
+The table also should not contain partial dependency. Here partial dependency means the proper subset of candidate key determines a non-prime attribute.
+
+OrderNumber			CustomerName	ProductName		ProductPrice
+1001				John Smith		iPhone			$999
+1001				John Smith		MacBook			$1499
+1002				Jane Doe		iPad			$499
+1002				Jane Doe		MacBook			$1499
+
+Convert to 2NF
+--------------------------------
+OrderNumber	CustomerName
+1001		John Smith
+1002		Jane Doe
+
+We have eliminated the partial dependency by splitting the original table into two tables, each with a unique primary key. 
+The order table has a primary key of Order Number, and the product table has a primary key of Product Name. 
+We can link these tables together using a foreign key, which is the Product Name in the order table. 
+Now, each non-key attribute is fully dependent on the primary key in its respective table, and the table is in 2NF.
+
+-----------------------------------------
+The third normal form (3NF)
+It must be in second normal form (2NF).
+It must not have any transitive dependencies, which means that no non-key attribute should be dependent on another non-key attribute.
+
+EmployeeID	EmployeeName	DepartmentName	DepartmentLocation
+001			John Smith		Sales			New York
+002			Jane Doe		Marketing		Los Angeles
+003			Bob Johnson		Sales			New York
+004			Alice Lee		HR				Chicago
+
+Convert into 3rd Normal Form:
+--------------------------------------
+EmployeeID		EmployeeName	DepartmentID
+001				John Smith		1
+002				Jane Doe		2
+003				Bob Johnson		1
+004				Alice Lee		3
+
+
+Department ID	Department Name
+1				Sales
+2				Marketing
+3				HR
+
+DepartmentName		DepartmentLocation
+Sales				New York
+Marketing			Los Angeles
+HR					Chicago
+
+We have eliminated the transitive dependency by splitting the original table into three tables, each with a unique primary key. 
+
+The employee table has a primary key of Employee ID, 
+the department table has a primary key of Department ID, 
+and the department location table has a primary key of Department Name. 
+
+We can link these tables together using foreign keys. 
+Now, each non-key attribute is only dependent on the primary key in its respective table, and the table is in 3NF.
+
+----------------------------------------------------
+BCNF stands for Boyce-Codd Normal Form, which is a higher level of normalization than 3NF. It is named after two computer scientists, Raymond Boyce and Edgar Codd, who developed the concept.
+Every determinant must be a candidate key.
+There should be no functional dependency between non-key attributes.
+
+BCNF is not always achievable in practice, and in some cases, it may result in a loss of data. In such cases, denormalization techniques can be used to relax the rules of normalization and improve performance.
+
+Employees(employee_id, employee_name, department, manager_name)
+
+(1, "John Smith", "Sales", "Jane Doe")
+(2, "Jane Doe", "Sales", "Bob Johnson")
+(3, "Bob Johnson", "Marketing", "Ann Lee")
+(4, "Ann Lee", "Marketing", "Bob Johnson")
+
+Employees(employee_id, employee_name, department_id)
+Departments(department_id, department_name, manager_name)
+
+Employees(employee_id, employee_name, department_id)
+
+(1, "John Smith", 1)
+(2, "Jane Doe", 1)
+(3, "Bob Johnson", 2)
+(4, "Ann Lee", 2)
+
+Departments(department_id, department_name, manager_name)
+
+(1, "Sales", "Jane Doe")
+(2, "Marketing", "Bob Johnson")
+
+-----------------------------------------
+Both Third Normal Form (3NF) and Boyce-Codd Normal Form (BCNF) are concerned with eliminating functional dependencies in a database schema to improve its efficiency and reduce the risk of anomalies. However, there are some differences between the two normal forms:
+
+Dependencies: In 3NF, every non-key attribute must be dependent on the primary key, while in BCNF, every determinant (i.e., attribute that determines the value of another attribute) must be a candidate key.
+
+Preservation of FDs: 3NF does not guarantee that all functional dependencies will be preserved, whereas BCNF guarantees that all functional dependencies will be preserved.
+
+Complexity: BCNF is more restrictive than 3NF, which means that it is harder to achieve BCNF than 3NF. It is possible for a relation to be in 3NF but not in BCNF.

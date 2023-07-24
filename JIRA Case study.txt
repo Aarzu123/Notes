@@ -1,0 +1,116 @@
+SDLC Case study:
+
+Case Study: Online Shopping Website
+
+You have been hired to lead the development of an online shopping website for a retail company. 
+The website should allow customers to browse products, add them to a shopping cart, and check out using a credit card or other payment method. 
+The website should also include a user account system, where customers can save their shipping and billing information, view their order history, and receive personalized recommendations based on their browsing and purchase history.
+
+Task:
+To develop a plan for the software development life cycle (SDLC) of this project. Your plan should include the following phases:
+
+Planning: 
+	In this phase, you will work with the project stakeholders to define the project goals and requirements, identify the resources needed for the project, and develop a project plan that outlines the timeline and budget for the project. 
+	You will also identify any potential risks or challenges that could impact the success of the project.
+
+Analysis: 
+	In this phase, you will conduct a detailed analysis of the project requirements, including functional and non-functional requirements, usability requirements, and performance requirements. 
+	You will also conduct a feasibility analysis to determine whether the project is technically and financially feasible.
+
+Design: 
+	In this phase, you will design the architecture of the website, including the database schema, the user interface design, and the overall system design. 
+	You will also develop a detailed design specification that outlines how each component of the system will be implemented.
+
+Implementation: 
+	In this phase, you will develop the code for the website, including the front-end user interface and the back-end server-side code. You will also conduct unit testing to ensure that each component of the system is functioning as intended.
+
+Testing: 
+	In this phase, you will conduct various types of testing to ensure that the website is functioning as expected, including functional testing, usability testing, and performance testing. 
+	You will also conduct integration testing to ensure that all components of the system are working together as expected.
+
+Deployment: 
+	In this phase, you will deploy the website to a production environment, and ensure that it is available to customers. 
+	You will also conduct any necessary training for the customer support team, and develop a maintenance plan to ensure that the website remains up-to-date and secure.
+
+Maintenance: 
+	In this phase, you will monitor the website for any issues or bugs, and make updates and improvements as needed. 
+	You will also conduct periodic security audits to ensure that the website is secure and protected from potential threats.
+
+Deliverables:
+
+	Your plan should include the following deliverables:
+
+	A project plan that outlines the timeline and budget for the project, and identifies any potential risks or challenges that could impact the success of the project.
+
+	A requirements document that outlines the functional and non-functional requirements of the website, as well as the usability and performance requirements.
+
+	A design specification that outlines the architecture of the website, including the database schema, the user interface design, and the overall system design.
+
+	Code for the website, including the front-end user interface and the back-end server-side code.
+
+	Test results that demonstrate that the website is functioning as expected, including functional testing, usability testing, and performance testing.
+
+	A deployment plan that outlines how the website will be deployed to a production environment, and any necessary training for the customer support team.
+
+	A maintenance plan that outlines how the website will be monitored and maintained over time, including periodic security audits and updates and improvements as needed.
+
+Assumptions:
+
+	You may make the following assumptions for this case study:
+
+	The website will be developed using a modern web development framework, such as Java or .Net
+
+	The website will be hosted on a cloud-based platform, such as Amazon Web Services
+
+Execution using JIRA:
+
+Project Initiation: 
+	You can create a new project and set the project goals and scope in the project charter. 
+	You can also create a product backlog in JIRA and add all the features and functionalities that need to be developed for the website.
+
+Release Planning: 
+	You can prioritize the features and functionalities in the product backlog based on customer needs and business value, and create a release plan. 
+	You can also create epics in JIRA to group related features and functionalities together.
+
+Sprint Planning: 
+	You can create sprints and add the features and functionalities to be developed in each sprint to the sprint backlog. 
+	You can also estimate the time required for each task using story points or other metrics.
+
+Sprint Execution: 
+	The development team can use the agile board to track the progress of each sprint. 
+	They can update the status of each task, collaborate with other team members, and make adjustments to the plan as needed.
+
+Sprint Review: 
+	The development team can create a sprint report that includes the completed work and any issues or blockers that were encountered during the sprint. 
+	The project stakeholders can provide feedback on the completed work and suggest any changes that need to be made.
+
+Sprint Retrospective: 
+	The development team can conduct a retrospective meeting to discuss the previous sprint's process and identify any improvements that can be made. 
+	They can create action items in JIRA to implement the improvements in the next sprint.
+
+Continuous Integration and Testing: (not available in the free version)
+	You can use integrations with continuous integration and testing tools to automate the testing process and ensure that the website is functioning as expected.
+
+Deployment: (not available in the free version)
+	You can create a deployment plan and track the progress of the deployment. You can also create a knowledge base in JIRA to provide documentation and training for the customer support team.
+
+Continuous Improvement: 
+	You can track any issues or bugs that are reported by users, and create tasks to address them. You can also create a backlog of future improvements and updates to the website.
+
+Deliverables:
+
+	In JIRA, you can create the following deliverables:
+
+	Project charter: Create a project in JIRA and set the project goals and scope.
+
+	Product backlog: Create a backlog in JIRA and add all the features and functionalities that need to be developed for the website.
+
+	Sprint backlog: Create sprints in JIRA and add the features and functionalities to be developed in each sprint to the sprint backlog.
+
+	Code: Use JIRA to track the development of the website code.
+
+	Test results: Use JIRA to track the results of testing and ensure that the website is functioning as expected.
+
+	Deployment plan: Use JIRA to track the progress of the deployment plan and provide training for the customer support team.
+
+	Maintenance plan: Use JIRA to track any issues or bugs that are reported by users, and create tasks to address them. You can also use JIRA to track future improvements and updates to the website.
