@@ -1,0 +1,177 @@
+
+
+Docker File:
+
+FROM openjdk:17-jdk-alpine
+EXPOSE 8081
+WORKDIR /usr/src
+ENV MONGO_DB=usedbooks
+ENV MONGO_URI=mongodb://localhost:27017/usedbooks
+ADD ./target/Book-0.0.1-SNAPSHOT.jar Book-0.0.1-SNAPSHOT.jar
+ENTRYPOINT ["java","-Dspring.data.mongodb.uri=mongodb://bookcontainer/usedbooks","-jar","Book-0.0.1-SNAPSHOT.jar"]
+
+
+
+app-deployment.yml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubernetes-deployment
+spec:
+  selector:
+    matchLabels:
+      app: bookservice-mysql
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: bookservice-mysql
+    spec:
+      containers:
+        - name: bookcontainer
+          image: bookservice:v1
+          ports:
+            - containerPort: 8081
+          env:   # Setting Enviornmental Variables
+            - name: DB_HOST   # Setting Database host address from configMap
+              value: mongo
+
+            - name: MONGO_DB  # Setting Database name from configMap
+              value: usedbooks
+
+            - name: MONGO_URI  # Setting Database username from Secret
+              value: mongodb://localhost:27017/usedbooks
+
+           # - name: DB_PASSWORD # Setting Database password from Secret
+             # value: root
+
+---
+
+apiVersion: v1 # Kubernetes API version
+kind: Service # Kubernetes resource kind we are creating
+metadata: # Metadata of the resource kind we are creating
+  name: springboot-crud-svc
+spec:
+  selector:
+    app: bookservice-mongo
+  ports:
+    - protocol: "TCP"
+      port: 8081 # The port that the service is running on in the cluster
+      targetPort: 8081 # The port exposed by the service
+  type: NodePort # type of the service.
+
+
+application.yml
+
+server:
+  port: 8081
+  
+spring:
+  application:
+    name: book-service
+
+#MongoDB
+#spring.data.mongodb.database=usedbooks
+#spring.data.mongodb.uri=mongodb://localhost:27017/usedbooks
+
+
+  data:
+    mongodb:
+      database: ${MONGO_DB}
+      uri: ${MONGO_URI}
+
+## Hibernate properties
+
+  jpa:
+    database-platform: org.hibernate.dialect.MongoDBDialect
+    hibernate.ddl-auto: update
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: false
+          
+
+#Eureka
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      default-zone: http://localhost:8761/eureka
+
+        
+
+
+db-de.yml
+# Define a 'Persistent Voulume Claim'(PVC) for Mysql Storage, dynamically provisioned by cluster
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mongo-pv-claim # name of PVC essential for identifying the storage data
+  labels:
+    app: mongo
+    tier: database
+spec:
+  accessModes:
+    - ReadWriteOnce   #This specifies the mode of the claim that we are trying to create.
+  resources:
+    requests:
+      storage: 1Gi    #This will tell kubernetes about the amount of space we are trying to claim.
+---
+# Configure 'Deployment' of mysql server
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongo
+  labels:
+    app: mongo
+    tier: database
+spec:
+  selector: # mysql Pod Should contain same labels
+    matchLabels:
+      app: mongo
+      tier: database
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels: # Must match 'Service' and 'Deployment' selectors
+        app: mongo
+        tier: database
+    spec:
+      containers:
+        - image: mongo:latest # image from docker-hub
+          args:
+            - "--ignore-db-dir=lost+found" # Workaround for https://github.com/docker-library/mysql/issues/186
+          name: mongo
+          env:
+            - name: MONGO_DB # Setting Database Name from a 'ConfigMap'
+              value: usedbooks
+
+          ports:
+            - containerPort: 27017
+              name: mongo
+          volumeMounts:        # Mounting voulume obtained from Persistent Volume Claim
+            - name: mongo-persistent-storage
+              mountPath: /var/lib/mongo #This is the path in the container on which the mounting will take place.
+      volumes:
+        - name: mongo-persistent-storage # Obtaining 'vloume' from PVC
+          persistentVolumeClaim:
+            claimName: mongo-pv-claim
+---
+# Define a 'Service' To Expose mysql to Other Services
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongo  # DNS name
+  labels:
+    app: mongo
+    tier: database
+spec:
+  ports:
+    - port: 27017
+      targetPort: 27017
+  selector:       # mysql Pod Should contain same labels
+    app: mongo
+    tier: database
+  clusterIP: None  # We Use DNS, Thus ClusterIP is not relevant
